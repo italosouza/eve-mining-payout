@@ -1,0 +1,82 @@
+<div class="animated fadeIn container">
+    <div class="row">
+        <div vamiddle class="col-md-6 m-x-auto pull-xs-none vertical-center">
+
+            <form (ngSubmit)="onSubmit()"  class="form-horizontal" action="http://localhost:8080/integracao/sincronizarApontamentos">
+
+            <div class="card">
+                <div class="card-block">
+
+                    <h1 class="text-xs-center">Rational TASK Concert</h1>
+                    <p class="text-muted text-xs-center">Ferramenta de sincronização de apontamentos do Task para RTC</p>
+
+                    <div class="form-group">
+                        <div class="controls">
+                            <div class="input-prepend input-group">
+                                <span class="input-group-addon"><i class="icon-user"></i></span>
+                                <input [(ngModel)]="objeto.usuarioTASK"  name="usuarioTask" type="text" class="form-control" placeholder="Usuário TASK">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="controls">
+                            <div class="input-prepend input-group">
+                                <span class="input-group-addon"><i class="icon-user"></i></span>
+                                <input [(ngModel)]="objeto.usuarioRTC" name="usuarioRTC" type="text" class="form-control" placeholder="Usuário RTC">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="controls">
+                            <div class="input-prepend input-group">
+                                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                                <input [(ngModel)]="objeto.senhaRTC" name="senhaRTC" type="password" class="form-control" placeholder="Senha RTC">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-8">
+                            <div class="controls">
+                                <div class="input-prepend input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                                    <input [(ngModel)]="objeto.data" name="data" type="date" class="form-control" placeholder="Data dos apontamentos">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4" vamiddle>
+                            <div class="form-group">
+                                <label for="cvv">Lembrar dados: </label>
+                                <label class="switch switch-icon switch-primary">
+                                <input [(ngModel)]="this.objeto.dadosSalvos" name="recebido" type="checkbox" class="switch-input">
+                                <span class="switch-label" data-on="SIM" data-off="NÃO"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+            </div>
+
+            <div class="card-footer">
+                <div class="col-xs-6">
+                  <button type="submit" class="btn btn-primary p-x-2">Sincronizar </button>
+                </div>
+
+                <!--<div class="col-xs-6 text-xs-right">
+                    <button type="button" [routerLink]="['/ajuda']" class="btn btn-secondary p-x-2">Ajuda</button>
+                </div>-->
+            </div>
+
+        </div>
+
+        </form>
+        </div>
+
+    </div>
+</div>
