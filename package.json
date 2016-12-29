@@ -19,7 +19,8 @@
     "jshint": "^2.9.3"
   },
   "scripts": {
-    "prestart": "npm update"
+    "prestart": "npm update",
+    "start": "gulp build && cd client && ng build -prod"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
