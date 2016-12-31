@@ -11,9 +11,9 @@ module.exports = function(app) {
 
   controller.format = function(pLine) {
     var sLine = S(pLine).ensureRight('/');
-    var playerName = S(sLine).between(' ', ' has got');
-    var oreName  = S(sLine).between('has got ', ' x');
-    var amount = S(sLine).between('x ', '/');
+    var playerName = S(sLine).between(' ', ' has looted');
+    var oreName  = S(sLine).between('x ', '/');
+    var amount = S(sLine).between('has looted ', ' x');
 
     return {
       playerName: playerName.toString(),
