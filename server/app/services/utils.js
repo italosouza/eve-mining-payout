@@ -1,5 +1,4 @@
 var jwt = require('jwt-simple');
-var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(app) {
 

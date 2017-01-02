@@ -1,4 +1,5 @@
 var S = require('string');
+// var request = require('request');
 
 module.exports = function(app) {
   var controller = {};
@@ -9,16 +10,21 @@ module.exports = function(app) {
     res.status(200).json({res: 'ok'});
   };
 
+  controller.consultarPreco = function(){
+    
+  };
+
   controller.format = function(pLine) {
     var sLine = S(pLine).ensureRight('/');
-    var playerName = S(sLine).between(' ', ' has got');
-    var oreName  = S(sLine).between('has got ', ' x');
-    var amount = S(sLine).between('x ', '/');
+    var playerName = S(sLine).between(' ', ' has looted');
+    var oreName  = S(sLine).between('x ', '/');
+    var amount = S(sLine).between('has looted ', ' x');
 
     return {
       playerName: playerName.toString(),
       oreName: oreName.toString(),
-      amount: amount.toString()
+      amount: amount.toString(),
+      value: 0
     };
   };
 
@@ -26,6 +32,11 @@ module.exports = function(app) {
     var history = req.body.history || '';
     var lines = S(history).lines();
     var content = [];
+    var _preco = {};
+
+    // request('http://api.eve-central.com/api/evemon', function(err, body){
+    //   _preco = body;
+    // }, this);
 
     lines.forEach(function(line, i) {
       var obj = controller.format(line);
